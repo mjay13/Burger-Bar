@@ -1,0 +1,22 @@
+.img-bg {
+  width: 100%;
+  height: auto;
+  margin-top: 0px;  
+}
+
+.jumbotron {
+	margin: 0px;
+}
+
+footer {
+	margin: 20px;
+	padding: 10px;
+}
+
+.footer-text {
+	text-align: right;
+}
+
+.col-sm-4 {
+	margin: 40px;
+}
