@@ -37,42 +37,25 @@ var orm = {
     },
 
     // Text box submission
-    insertOne: function(table, cols, vals, cb) {
-        var queryString = "INSERT INTO " + table;
-
-        queryString += " (";
-        queryString += cols.toString();
-        queryString += ") ";
-        queryString += "VALUES (";
-        queryString += printQuestionMarks(vals.length); 
-        queryString += ") ";
-
+    insertOne: function(val, cb) {
+        var queryString = "INSERT INTO burgers (burger_name) VALUE (?)";
         console.log(queryString);
-
-        connection.query(queryString, vals, function(err, result) {
+        connection.query(queryString, [val], function(err, result) {
             if (err) {
                 throw err;
             }
-
             cb(result);
         });
     },
 
     // Updates the boolean on an object
-    updateOne: function(table, objColVals, condition, cb) {
-        var queryString = "UPDATE " + table;
-
-        queryString += " SET ";
-        queryString += objToSql(objColVals);
-        queryString += " WHERE ";
-        queryString += condition;
-
+    updateOne: function(val, cb) {
+        var queryString = "UPDATE burgers SET devoured=true WHERE id=?";
         console.log(queryString);
-        connection.query(queryString, function(err, result) {
+        connection.query(queryString, [val], function(err, result) {
             if (err) {
                 throw err;
             }
-
             cb(result);
         });
     }

@@ -2,28 +2,30 @@
         <!-- Burger List -->
         <div id="burger-list" class="col-sm-4">
             <div class="well well-lg">
+                {{#each burgers}}
                 <div class="well well-sm">
-					<h4>I'm a burger</h4>
-					<button class="btn btn-danger">eat me</button>
+					<h4>{{burger_name}}</h4>
+					<button class="btn btn-danger" data-id="{{id}}">eat me</button>
                 </div>
-                 <div class="well well-sm">hi</div>
+                {{/each}}
             </div>
         </div>
         <!-- Devoured Burgers -->
         <div id="burger-devoured" class="col-sm-4">
             <div class="well well-lg">
-                <div class="well well-sm">hi</div>
-                 <div class="well well-sm">hi</div>
+                
+                <div class="well well-sm"> </div>
+                
             </div>
         </div>
         <!-- Burger Entry -->
         <div class="col-md-4"></div>
         <div id="burger-entry" class="col-md-4">
-            <form class="form-horizontal">
+            <form class="form-horizontal" action="/" method="POST">
                 <fieldset>
                     <div class="form-group">
                         <div class="col-lg-12">
-                            <textarea class="form-control" rows="3" id="textArea"></textarea>
+                            <textarea class="form-control" name="burger" rows="3" id="textArea" placeholder="i'm the name of a burger"></textarea>
                         </div>
                     </div>
                     <div class="form-group">
