@@ -5,7 +5,7 @@ var bodyParser = require("body-parser");
 var app = express();
 
 // Port
-var port = process.env.port || 3000;
+// var port = process.env.port || 3000;
 
 // Serve static content
 app.use(express.static("public"));
@@ -24,4 +24,8 @@ var router = require("./controllers/burgers_controller.js");
 app.use("/", router);
 
 // Listener
-app.listen(port);
+// app.listen(port);
+
+app.listen(process.env.port || 3000, function(){
+  console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+});
